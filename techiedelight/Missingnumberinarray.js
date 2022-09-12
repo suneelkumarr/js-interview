@@ -41,4 +41,25 @@ const missingNumber = (N,A) => {
     }
 }
 
+
+function getMissingNo(a) {
+    const n = a.length
+    let total = Math.floor((n + 1) * (n + 2) / 2);
+    for (let i = 0; i < n; i++)
+        total -= a[i];
+    return total;
+}
+
+function getMissingNo(a, n)
+{
+    let i, total=1;
+     
+    for (i = 2; i<= (n+1); i++)
+    {
+        total += i;
+        total -= a[i-2];
+    }
+    return total;
+}
+
 console.log(missingNumber(N,A))
