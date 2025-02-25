@@ -75,8 +75,38 @@ const Alternative = (a) => {
     //     }
     // }
       console.log(positive)
-                       m 
     
 }
 
 console.log(Alternative(a))
+
+
+
+
+
+
+
+const Alternative = (a) => {
+    let positive = [];
+    let negative = [];
+    
+    // Separate positive and negative numbers
+    for (let num of a) {
+        if (num >= 0) positive.push(num);
+        else negative.push(num);
+    }
+    
+    // Interleave positive and negative numbers
+    let result = [];
+    let i = 0, j = 0;
+    while (i < positive.length || j < negative.length) {
+        if (i < positive.length) result.push(positive[i++]);
+        if (j < negative.length) result.push(negative[j++]);
+    }
+    
+    return result;
+};
+
+// Example usage
+let a = [9, 4, -2, -1, 5, 0, -5, -3, 2, -3, -7];
+console.log(Alternative(a));
