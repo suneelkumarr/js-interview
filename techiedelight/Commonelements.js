@@ -49,4 +49,39 @@ const commanelement = (A,B,C) =>{
     return upData
 }
 
+
+//O(n^2)
 console.log(commanelement(A,B,C))
+
+
+
+//// O(n)
+
+
+const commonElement = (A, B, C) => {
+    // Convert arrays A, B, and C into sets
+    const setA = new Set(A);
+    const setB = new Set(B);
+    const setC = new Set(C);
+
+    // Find the intersection of the three sets
+    const result = [];
+    for (let num of setA) {
+        if (setB.has(num) && setC.has(num)) {
+            result.push(num);
+        }
+    }
+
+    return result;
+};
+
+// Example usage
+let A = [1, 5, 10, 20, 40, 80];
+let B = [6, 7, 20, 80, 100];
+let C = [3, 4, 15, 20, 30, 70, 80, 120];
+
+console.log(commonElement(A, B, C)); // Output: [20, 80]
+
+
+
+
