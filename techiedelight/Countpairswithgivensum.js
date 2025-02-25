@@ -52,6 +52,33 @@ const countPair = (N, K, arr) =>{
 } 
 console.log(countPair(N, K, arr))
 
+
+
+//O(n)
+
+const countPair = (N, K, arr) => {
+    const freqMap = new Map(); // To store the frequency of elements
+    let pairCount = 0;         // To count valid pairs
+
+    for (let i = 0; i < arr.length; i++) {
+        const complement = K - arr[i]; // Calculate the complement needed to form the sum K
+
+        // If the complement exists in the map, add its frequency to the pair count
+        if (freqMap.has(complement)) {
+            pairCount += freqMap.get(complement);
+        }
+
+        // Update the frequency of the current element in the map
+        freqMap.set(arr[i], (freqMap.get(arr[i]) || 0) + 1);
+    }
+
+    return pairCount;
+};
+
+// Example usage
+let N = 4, K = 2, arr = [1, 1, 1, 1];
+console.log(countPair(N, K, arr)); // Output: 6
+
 // function countPair(K,inputArr) { 
 //     let n = inputArr.length;
 //         const pair = [];
