@@ -52,3 +52,29 @@ const duplicates = (a) =>{
 }
 
 console.log(duplicates(a))
+
+
+
+
+const duplicates = (a) => {
+    const seen = new Set();  // To track elements we've seen
+    const duplicates = new Set();  // To track duplicate elements
+
+    for (let num of a) {
+        if (seen.has(num)) {
+            duplicates.add(num);  // Add to duplicates if already seen
+        } else {
+            seen.add(num);  // Add to seen if not already present
+        }
+    }
+
+    // Convert duplicates set to array
+    const result = Array.from(duplicates);
+
+    // Return -1 if no duplicates, otherwise return the array of duplicates
+    return result.length === 0 ? -1 : result;
+};
+
+// Example usage
+const a = [1, 6, 3, 1, 3, 6, 6];
+console.log(duplicates(a));  // Output: [1, 6, 3]
